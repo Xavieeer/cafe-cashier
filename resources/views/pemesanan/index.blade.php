@@ -155,7 +155,7 @@
 
                 // ubah qty dan subtotal
                 const txt_subtotal = $(el).closest('.li').find('.subtotal')[0];
-                const txt_qty = $(el).closest('.li').find('.qty-item')[0]
+                const txt_qty = $(el).closest('.li').find('.qty-item')[0] // nampilin tambah dan kurang qty
                 txt_qty.value = parseInt(txt_qty.value) == 1 && inc == -1 ? 1 : parseInt(txt_qty.value) + inc
                 txt_subtotal.innerHTML = orderedList[index].harga * orderedList[index].qty;
                 // total += orderedList[index].harga * orderedList[index].qty;
@@ -174,7 +174,7 @@
             })
 
             $('.ordered-list').on('click', '.remove-item', function() {
-                const item = $(this).closest('li')[0];
+                const item = $(this).closest('.li')[0];
                 let index = orderedList.findIndex(list => list.id == parseInt(item.dataset.id))
 
                 orderedList.splice(index, 1)
