@@ -46,7 +46,7 @@
                     <div class="item-content col-md-3">
                         <div class="card" style="width: 500px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); border-radius: 10px;">
                             <div class="card-body">
-                                <h3>Order</h3>
+                                <h3>Orders</h3>
                                 <ul class="ordered-list">
                         
                                 </ul>
