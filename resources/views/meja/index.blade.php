@@ -79,32 +79,30 @@
             else swal.close()
         })
     })
-
+    
+    $('#formMejaEdit').on('show.bs.modal', function(e){
+   
+      let button = $(e.relatedTarget)
+      let id = button.data('id')
+      let nomor_meja = button.data('nomor_meja')
+      let kapasitas = button.data('kapasitas')
+      let status = button.data('status')
+   
+  console.log(nomor_meja)
+      $('#formMejaEdit').find('#nomor_meja').val(nomor_meja)
+      $('#formMejaEdit').find('#kapasitas').val(kapasitas)
+      $('#formMejaEdit').find('#status').val(status)
 
     // $(function() {
     //     $('#tbl-produk').DataTable()
     // })
 
-$(document).ready(function(){
-
-  $('#formMejaEdit').on('show.bs.modal', function(e){
- 
-    let button = $(e.relatedTarget)
-    let id = button.data('id')
-    let nomor_meja = button.data('nomor_meja')
-    let kapasitas = button.data('kapasitas')
-    let status = button.data('status')
- 
-console.log(nomor_meja)
-    $('#formMejaEdit').find('#nomor_meja').val(nomor_meja)
-    $('#formMejaEdit').find('#kapasitas').val(kapasitas)
-    $('#formMejaEdit').find('#status').val(status)
-
-   
-
-
     $('.form-edit').attr('action',`/meja/${id}`)
   })
+  $(document).ready(function(){
+      
 })
+
+
 </script>
 @endpush

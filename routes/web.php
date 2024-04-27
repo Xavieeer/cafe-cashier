@@ -1,16 +1,20 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DetailTransaksiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\ProdukTitipanController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\TentangAplikasiController;
 use App\Http\Controllers\TransaksiController;
@@ -27,6 +31,8 @@ Route::resource('meja', MejaController::class);
 Route::resource('pemesanan', PemesananController::class);
 Route::get('nota/{nofaktur}', [TransaksiController::class, 'faktur']);
 Route::resource('transaksi', TransaksiController::class);
+Route::resource('register', RegisterController::class);
+
 
 Route::get('export/karyawan', [KaryawanController::class, 'exportData'])->name('sapir');
 Route::get('generate/karyawan', [KaryawanController::class, 'generatepdf'])->name('merman');
@@ -42,6 +48,9 @@ Route::get('export/pelanggan', [PelangganController::class, 'exportData'])->name
 Route::get('generate/pelanggan', [PelangganController::class, 'generatepdf'])->name('xavier');
 Route::get('export/meja', [MejaController::class, 'exportData'])->name('gojo');
 Route::get('generate/meja', [MejaController::class, 'generatepdf'])->name('wiro');
+Route::get('export/absensi', [AbsensiController::class, 'exportData'])->name('yeuu');
+Route::get('generate/absensi', [AbsensiController::class, 'generatepdf'])->name('yaa');
+
 
 Route::post('category/import',[CategoryController::class, 'importData'])->name('import-category');
 Route::post('menu/import',[MenuController::class, 'importData'])->name('import-menu');
@@ -53,6 +62,10 @@ Route::post('karyawan/import',[KaryawanController::class, 'importData'])->name('
 
 // tentang aplikasi
 Route::resource('tentang', TentangAplikasiController::class);
+Route::resource('contact', ContactUsController::class);
+Route::resource('absensi', AbsensiController::class);
+Route::get('/contact-us', [ContactUsController::class, 'show'])->name('contactUs');
+Route::post('/send-question', [ContactUsController::class, 'sendQuestion'])->name('sendQuestion');
 
 // Titipan Produk
 Route::resource('produk', ProdukTitipanController::class);
@@ -67,24 +80,32 @@ Route::post('/login/cek', [UserController::class, 'cekLogin'])->name('cekLogin')
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // // route untuk yang sudah login
-// Route::group(['middleware' => 'auth'], function(){
-//     Route::resource('/karyawan', KaryawanController::class);
-//     Route::resource('/category', CategoryController::class);
-//     Route::resource('/produk', ProdukTitipanController::class);
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('/karyawan', KaryawanController::class);
+    Route::resource('/category', CategoryController::class);
+    Route::resource('/produk', ProdukTitipanController::class);
 
 // //route untuk admin
-// Route::group(['middleware' => ['cekUserLogin:1']], function(){
-//     Route::resource('/jenis', JenisController::class);
-//     Route::resource('/menu', MenuController::class);
-//     Route::resource('/stok', StokController::class);
-//     Route::resource('/pelanggan', PelangganController::class);
-//     Route::resource('/meja', MejaController::class);
-// });
+Route::group(['middleware' => ['cekUserLogin:1']], function(){
+    Route::resource('/jenis', JenisController::class);
+    Route::resource('/menu', MenuController::class);
+    Route::resource('/stok', StokController::class);
+    Route::resource('/pelanggan', PelangganController::class);
+    Route::resource('/meja', MejaController::class);
+});
 
 // //route untuk kasir
-// Route::group(['middleware' => ['cekUserLogin:2']], function(){
-//     Route::resource('/pemesanan', PemesananController::class);
-// });
+Route::group(['middleware' => ['cekUserLogin:2']], function(){
+    Route::resource('/pemesanan', PemesananController::class);
+});
 
-// });
+});
+
+// SEARCH BAR
+Route::get('/search', 'SearchController@search')->name('search');
+
+//LAPORAN TRANSAKSI
+Route::resource('laporan', LaporanController::class);
+
+
 

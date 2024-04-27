@@ -46,8 +46,8 @@ class TransaksiController extends Controller
             
 //Membuat iterasi (menjalankan perulangan) untuk setiap elemen yg ada dalam array 'orederedList'.
             $insertTransaksi = Transaksi::create([
-                'id' => $noTrans,
-                'tanggal' => date('Y-m-d'),
+                'id' => $noTrans, //variabel yg digunakan untuk menyimpan nomor transaksi
+                'tanggal' => date('Y-m-d'), //artinya 'tanggal' berhubungan dengan nilai 'date('Y-m-d')'
                 'total_harga' => $request->total,
                 'metode_pembayaran' => 'cash',
                 'keterangan' => ''

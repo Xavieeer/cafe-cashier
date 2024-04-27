@@ -40,3 +40,16 @@
 </body>
 
 </html>
+<script>
+    new DataTable('#myTable');
+</script>
+{{-- DataTable --}}
+<script>
+    new DataTable('#myTable');
+</script>
+<!-- dataTable -->
+<script src="https://code.jquery.com/jquery-3.7.1.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+    type="text/javascript"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js" type="text/javascript"></script>

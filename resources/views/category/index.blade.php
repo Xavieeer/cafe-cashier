@@ -84,21 +84,21 @@
     //     $('#tbl-produk').DataTable()
     // })
 
+    
+      $('#formCategoryEdit').on('show.bs.modal', function(e){
+     
+        let button = $(e.relatedTarget)
+        let id = button.data('id')
+        let nama_kategori = button.data('nama_kategori')
+    
+    console.log(nama_kategori)
+    
+        $('#formCategoryEdit').find('#nama_kategori').val(nama_kategori)
+    
+    
+        $('.form-edit').attr('action',`/category/${id}`)
+      })
 $(document).ready(function(){
-
-  $('#formCategoryEdit').on('show.bs.modal', function(e){
- 
-    let button = $(e.relatedTarget)
-    let id = button.data('id')
-    let nama_kategori = button.data('nama_kategori')
-
-console.log(nama_kategori)
-
-    $('#formCategoryEdit').find('#nama_kategori').val(nama_kategori)
-
-
-    $('.form-edit').attr('action',`/category/${id}`)
-  })
 })
 </script>
 @endpush

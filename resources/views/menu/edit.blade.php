@@ -35,14 +35,14 @@
             <div class="form-group row">
               <label for="image" class="col-sm-2 col-form-label">Image</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="image" value="" name="image" placeholder="Image">
+                <input type="file" class="form-control" id="image" value="" name="image" placeholder="Image">
               </div>
             </div>
 
             <div class="form-group row">
                 <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="deskripsi" value="" name="deskripsi" placeholder="Deskripsi">
+                  <textarea class="text" class="form-control" id="deskripsi" value="" name="deskripsi" placeholder="Deskripsi" rows="4" cols="50"></textarea>
                 </div>
               </div>
 

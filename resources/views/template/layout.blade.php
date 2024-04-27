@@ -15,9 +15,22 @@
     <link href="{{asset('admin')}}/focus-2/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{asset('admin')}}/focus-2/css/style.css" rel="stylesheet">
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet" type="text/css"> --}}
 
 
-
+    {{-- <style>
+        *{
+          text-decoration: none !important;
+        }
+    
+        #myTable_wrapper {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+         }
+     </style> --}}
 </head>
 
 <body>
@@ -72,13 +85,10 @@
                     <div class="collapse navbar-collapse justify-content-between">
                         <div class="header-left">
                             <div class="search_bar dropdown">
-                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
-                                    <i class="mdi mdi-magnify"></i>
-                                </span>
+                                {{-- <span class="search_icon p-3 c-pointer" data-toggle="dropdown"> --}}
+                                    {{-- <i class="mdi mdi-magnify"></i>
+                                </span> --}}
                                 <div class="dropdown-menu p-0 m-0">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -111,14 +121,20 @@
                        
                     </li>
 
-                    <li><a href="{{ url('karyawan')}}"><i
+                    
+                    @if (Auth::user()->level==1)
+                    <li><a href="{{ url('category')}}"><i
+                        class="fa-solid fa-layer-group"></i><span class="nav-text">Category</span></a>
+                    </li>
+
+                    <li><a href="{{ url('register')}}"><i
+                        class="fa-solid fa-user"></i><span class="nav-text">User Manager</span></a>
+                    </li>
+                    
+                    {{-- <li><a href="{{ url('karyawan')}}"><i
                         class="icon icon-single-04"></i><span class="nav-text">Karyawan</span></a>
-            </li>
-
-            <li><a href="{{ url('category')}}"><i
-                class="fa-solid fa-layer-group"></i><span class="nav-text">Category</span></a>
-    </li>
-
+            </li> --}}
+                    
     <li><a href="{{ url('jenis')}}"><i
         class="fa-solid fa-list"></i><span class="nav-text">Jenis</span></a>
 </li>
@@ -139,29 +155,46 @@
     class="fa-solid fa-table"></i><span class="nav-text">Meja</span></a>
 </li>
 
-<li><a href="{{ url('pemesanan')}}"><i
-    class="fa-solid fa-money-bill"></i><span class="nav-text">Pemesanan</span></a>
-</li>
+
 
 <li><a href="{{ url('tentang')}}"><i
     class="fa-solid fa-mobile"></i><span class="nav-text">Tentang Aplikasi</span></a>
 </li>
 
-<li><a href="{{ url('produk')}}"><i
+{{-- <li><a href="{{ url('produk')}}"><i
     class="fa-solid fa-box"></i><span class="nav-text">Produk Titipan</span></a>
+</li> --}}
+
+<li><a href="{{ url('contact')}}"><i
+    class="fa-solid fa-phone"></i><span class="nav-text">Contact Us</span></a>
 </li>
+
+<li><a href="{{ url('absensi')}}"><i
+    class="fa-solid fa-fingerprint"></i><span class="nav-text">Absensi Kerja</span></a>
+</li>
+
+@endif
+
+@if (Auth::user()->level==2)
+
+<li><a href="{{ url('pemesanan')}}"><i
+    class="fa-solid fa-money-bill"></i><span class="nav-text">Pemesanan</span></a>
+</li>
+
+
+<li><a href="{{ url('laporan')}}"><i
+    class="fa-solid fa-book"></i><span class="nav-text">History Penjualan</span></a>
+</li>
+@endif
 
 <li><a href="{{ route('logout')}}"><i
     class="fa-solid fa-power-off"></i><span class="nav-text">Log Out</span></a>
 </li>
-                    {{-- <li><a href="{{ route ('login') }}">Lock Screen</a></li>
-                        </ul>
-                    </li>
-                </ul> --}}
-            </div>
+
+</div>
 
 
-        </div>
+</div>
         <!--**********************************
             Content body start
         ***********************************-->
@@ -180,4 +213,5 @@
     
 
    
+
 @include('template.footer')

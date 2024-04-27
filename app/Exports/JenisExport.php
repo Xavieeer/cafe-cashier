@@ -14,8 +14,12 @@ class JenisExport implements FromView
     */
     public function view(): View
     {
+        //  $jeni = Jenis::all(['id', 'nama_jenis']); // Ambil hanya kolom 'id' dan 'nama_jenis' dari model Jenis
         return view('jenis.export', [
             'jeni' => Jenis::all()
         ]);
+
+        
     }
+
 }

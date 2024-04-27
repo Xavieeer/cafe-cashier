@@ -23,7 +23,7 @@ class AuthRequest extends FormRequest
     {
         return [
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ];
     }
 
@@ -31,7 +31,7 @@ class AuthRequest extends FormRequest
     {
         return [
             'email.required' => 'Email harus diisi!',
-            'password' => 'Password harus diisi!'
+            'password.required' => 'Password harus diisi!',
         ];
     }
 }

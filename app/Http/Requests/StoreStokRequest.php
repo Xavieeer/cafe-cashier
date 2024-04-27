@@ -22,6 +22,7 @@ class StoreStokRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'menu_id' => 'required',
             'jumlah' => ['required','numeric']
         ];
     }
@@ -29,6 +30,7 @@ class StoreStokRequest extends FormRequest
     public function messages()
     { {
             return [
+                'menu_id.required' => 'Jumlah Stok belum diisi!',
                 'jumlah.required' => 'Jumlah Stok belum diisi!'
             ];
         }

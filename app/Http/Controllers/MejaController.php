@@ -23,7 +23,9 @@ class MejaController extends Controller
     public function index()
     {
           // dd('ok');
-      $meja = Meja::latest()->get();
+          //instance atau objek
+      $meja = Meja::latest()->get(); 
+      //mengambil data baru dari tabel meja dalam database, fungsi ini jalan ketika kita mencet menu meja
       return view('meja.index', compact('meja'));
     }
 

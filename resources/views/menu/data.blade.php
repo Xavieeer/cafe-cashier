@@ -42,7 +42,7 @@
         <th scope="col">Harga</th>
         <th scope="col">Image</th>
         <th scope="col">Deskripsi</th>
-        <th scope="col">Jenis ID</th>
+        <th scope="col">Jenis</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -55,7 +55,7 @@
           <td> <img src="{{ asset('storage/' . $p->image) }}" class="" alt="menu image" style="width: 60px;
           height: 60px;"></td>
           <td>{{ $p->deskripsi}}</td>
-          <td>{{ $p->jenis_id}}</td>
+          <td>{{ $p->jenis->nama_jenis}}</td>
 
           
           

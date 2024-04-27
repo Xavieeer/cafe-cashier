@@ -23,7 +23,7 @@ class StoreMejaRequest extends FormRequest
     {
         return [
                 'nomor_meja' => ['required','numeric'],
-                'kapasitas' => ['required', 'numeric'],
+                'kapasitas' => ['required','numeric'],
                 'status' => ['required','in:kosong,penuh'],
         ];
     }

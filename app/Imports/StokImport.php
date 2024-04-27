@@ -19,7 +19,8 @@ class StokImport implements ToCollection, WithHeadingRow
         foreach ($collection as $row) {
             // dd($row);
             Stok::create([
-                'jumlah' => $row['jumlah_stok']
+                'menu_id' => $row['menu_id'],
+                'jumlah' => $row['jumlah']
             ]);
         }
     }

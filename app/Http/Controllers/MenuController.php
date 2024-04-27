@@ -132,7 +132,6 @@ class MenuController extends Controller
     public function importData(Request $request){
         // dd($request->import);
         Excel::import(new MenuImport, $request->import);
-    
         return redirect()->back()->with('success', 'Import Data Menu Berhasil!');
         }
 }

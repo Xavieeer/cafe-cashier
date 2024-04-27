@@ -22,6 +22,7 @@ class UpdateStokRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'menu_id' => 'required|string',
             'jumlah' => 'required'
         ];
     }

@@ -35,7 +35,7 @@
 
             <label for="jenis_id" class="col-sm-4 col-form-label">Jenis</label>
             <div class="col-sm-9">
-              <select name="jenis_id" id="">
+              <select name="jenis_id" id="" class="form-control">
                 @foreach ($jeni as $j => $label)
                 <option value="{{ $j }}">{{ $label }}</option>
                 @endforeach

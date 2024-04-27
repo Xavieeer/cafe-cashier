@@ -42,9 +42,10 @@
         @endforeach
         @endif
         @include('stok.data')
-</section>
+    </section>
+    @include('stok.edit')
 @include('stok.form')
-@include('stok.edit')
+
 @endsection
 
 @push('script')
@@ -67,7 +68,7 @@
         Swal.fire({
             icon: 'error',
             title: 'Hapus Data',
-            html : `Apakah data <b>${jumlah}</b> akan dihapus?`,
+            html : `Apakah data akan dihapus?`,
             confirmButtonText : 'Ya',
             denyButtonText : 'Tidak',
             showDenyButton : true,
@@ -83,22 +84,26 @@
     //     $('#tbl-produk').DataTable()
     // })
 
-$(document).ready(function(){
-
-  $('#formStokEdit').on('show.bs.modal', function(e){
- 
-    let button = $(e.relatedTarget)
-    let id = button.data('id')
-    let jumlah = button.data('jumlah')
-
-console.log(jumlah)
-    $('#formStokEdit').find('#jumlah').val(jumlah)
-
-   
-
-
+    
+    $('#formStokEdit').on('show.bs.modal', function(e){
+        
+        let button = $(e.relatedTarget)
+        let id = button.data('id')
+        
+        let menu_id = button.data('menu_id')
+        let jumlah = button.data('jumlah')
+        
+        
+       
+        $('#formStokEdit').find('#menu_id').val(menu_id)
+        $('#formStokEdit').find('#jumlah').val(jumlah)
+        
+        
+        
     $('.form-edit').attr('action',`/stok/${id}`)
-  })
+})
+
+$(document).ready(function(){
 })
 </script>
 @endpush

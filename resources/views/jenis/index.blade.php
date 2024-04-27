@@ -70,7 +70,7 @@
         Swal.fire({
             icon: 'error',
             title: 'Hapus Data',
-            html : `Apakah data <b>${nama_jenis}</b> akan dihapus?`,
+            html : `Apakah data akan dihapus?`,
             confirmButtonText : 'Ya',
             denyButtonText : 'Tidak',
             showDenyButton : true,
@@ -86,21 +86,21 @@
     //     $('#tbl-produk').DataTable()
     // })
 
-$(document).ready(function(){
-
-  $('#formJenisEdit').on('show.bs.modal', function(e){
- 
-    let button = $(e.relatedTarget)
-    let id = button.data('id')
-    let nama_jenis = button.data('nama_jenis')
-
-console.log(nama_jenis)
-
-    $('#formJenisEdit').find('#nama_jenis').val(nama_jenis)
-
-
-    $('.form-edit').attr('action',`/jenis/${id}`)
-  })
+    
+    $('#formJenisEdit').on('show.bs.modal', function(e){
+        
+        let button = $(e.relatedTarget)
+        let id = button.data('id')
+        let nama_jenis = button.data('nama_jenis')
+        
+        console.log(nama_jenis)
+        
+        $('#formJenisEdit').find('#nama_jenis').val(nama_jenis)
+        
+        
+        $('.form-edit').attr('action',`/jenis/${id}`)
+    })
+    $(document).ready(function(){
 })
 </script>
 @endpush
