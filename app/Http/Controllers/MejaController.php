@@ -113,7 +113,7 @@ class MejaController extends Controller
     public function generatepdf()
     {
         $meja = Meja::all();
-        $pdf = Pdf::loadView('meja.data', compact('meja'));
+        $pdf = Pdf::loadView('meja.mejaPdf', compact('meja'));
         return $pdf->download('meja.pdf');
     }
 

@@ -118,7 +118,7 @@ class StokController extends Controller
     public function generatepdf()
     {
         $stok = Stok::all();
-        $pdf = Pdf::loadView('stok.data', compact('stok'));
+        $pdf = Pdf::loadView('stok.stokPdf', compact('stok'));
         return $pdf->download('stok.pdf');
     }
 

@@ -110,7 +110,7 @@ class PelangganController extends Controller
     public function generatepdf()
     {
         $pelanggan = Pelanggan::all();
-        $pdf = Pdf::loadView('pelanggan.data', compact('pelanggan'));
+        $pdf = Pdf::loadView('pelanggan.pelangganPdf', compact('pelanggan'));
         return $pdf->download('pelanggan.pdf');
     }
 

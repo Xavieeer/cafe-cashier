@@ -68,7 +68,7 @@
         Swal.fire({
             icon: 'error',
             title: 'Hapus Data',
-            html : `Apakah data <b>${nama_kategori}</b> akan dihapus?`,
+            html : `Apakah data akan dihapus?`,
             confirmButtonText : 'Ya',
             denyButtonText : 'Tidak',
             showDenyButton : true,

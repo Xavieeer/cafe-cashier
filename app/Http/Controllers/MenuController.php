@@ -125,7 +125,7 @@ class MenuController extends Controller
     public function generatepdf()
     {
         $menu = Menu::all();
-        $pdf = Pdf::loadView('menu.data', compact('menu'));
+        $pdf = Pdf::loadView('menu.menuPdf', compact('menu'));
         return $pdf->download('menu.pdf');
     }
 

@@ -29,13 +29,22 @@
                                             <div class="col-md-3 rounded mx-1 my-2 menu-item" data-id="{{ $menu->id }}"
                                                 data-nama="{{ $menu->nama_menu }}" data-harga="{{ $menu->harga }}"
                                                 data-stok="{{ $menu->jumlah }}" style="background-color: #e4fdf9">
+
                                                 <div class="d-flex flex-column align-items-center justify-content-between"
                                                     style="height: 100%;">
+
                                                     <img src="{{ asset('storage/' . $menu->image) }}"
                                                         class="ms-auto mt-2 img-fluid" alt="" style="width: 80px;">
+
                                                     <h4 class="text-center mt-3 menu">{{ $menu->nama_menu }}</h4>
+
                                                     <p class="text-center">Rp. <span>{{ $menu->harga }}</span></p>
+
+                                                    @if($menu->stok->jumlah > 0)
                                                     <p class="text-center">Stok : <span>{{ $menu->stok->jumlah }}</span></p>
+                                                    @else
+                                                    <p style="color: red;">Stok Habis</p>
+                                                    @endif
 
                                                 </div>
                                             </div>
@@ -75,50 +84,50 @@
 
         <style>
             /* .card1
-                {
-                    border: 1px solid red;
-                    display: flex;
-                    width: 750px;
-                    height: 400px;
-                } */
+                    {
+                        border: 1px solid red;
+                        display: flex;
+                        width: 750px;
+                        height: 400px;
+                    } */
             /* .container{
-                    display: flex;
-                } */
+                        display: flex;
+                    } */
             /* .menu-container{
-                    list-style-type: none;
-                }
-                .menu-container li{
-                    margin-bottom: 20px;
-                }
-                .btn-dec{
-                    width: 25px;
-                    height: 25px;
-                }
-                .btn-inc{
-                    width: 25px;
-                    height: 25px;
-                }
-                .menu-container li h3{
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    font-size: 18px;
-                    background-color: aliceblue;
-                    padding: 5px 15px;
-                    margin-bottom: 10px;
-                }
-                
-                .menu-item{
-                    list-style-type: none;
-                    display: flex;
-                    gap: 1em;
-                    margin: 10px 20px;
-                }
-                .menu-item li{
-                    background-color: beige;
-                    padding: 10px 20px;
-                    color: black;
-                
-                } */
+                        list-style-type: none;
+                    }
+                    .menu-container li{
+                        margin-bottom: 20px;
+                    }
+                    .btn-dec{
+                        width: 25px;
+                        height: 25px;
+                    }
+                    .btn-inc{
+                        width: 25px;
+                        height: 25px;
+                    }
+                    .menu-container li h3{
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        font-size: 18px;
+                        background-color: aliceblue;
+                        padding: 5px 15px;
+                        margin-bottom: 10px;
+                    }
+                    
+                    .menu-item{
+                        list-style-type: none;
+                        display: flex;
+                        gap: 1em;
+                        margin: 10px 20px;
+                    }
+                    .menu-item li{
+                        background-color: beige;
+                        padding: 10px 20px;
+                        color: black;
+                    
+                    } */
 
             .menu-item h4.menu::after {
                 content: '';

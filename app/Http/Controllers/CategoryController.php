@@ -113,7 +113,7 @@ class CategoryController extends Controller
     public function generatepdf()
     {
         $category = Category::all();
-        $pdf = Pdf::loadView('category.data', compact('category'));
+        $pdf = Pdf::loadView('category.categoryPdf', compact('category'));
         return $pdf->download('category.pdf');
     }
 
