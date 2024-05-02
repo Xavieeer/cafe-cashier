@@ -1,8 +1,3 @@
-{{-- <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-  Launch static backdrop modal
-</button> --}}
-
 <!-- Modal -->
 <div class="modal fade" id="formMenuEdit" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -14,7 +9,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form method="post" action="menu" class="form-edit">
+          <form method="post" action="menu" class="form-edit" enctype="multipart/form-data">
             @csrf
             @method('put')
   
@@ -28,7 +23,7 @@
             <div class="form-group row">
               <label for="harga" class="col-sm-2 col-form-label">Harga</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="harga" value="" name="harga" placeholder="Harga">
+                <input type="number" class="form-control" id="harga" value="" name="harga" placeholder="Harga">
               </div>
             </div>
   
@@ -47,10 +42,14 @@
               </div>
 
               <div class="form-group row">
-                <label for="jenis_id" class="col-sm-2 col-form-label">Jenis ID</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="jenis_id" value="" name="jenis_id" 
-                  placeholder="Jenis iD">
+                <label for="jenis_id" class="col-sm-4 col-form-label">Nama Menu</label>
+                <div class="col-sm-8">
+                  <select name="jenis_id" id="jenis_id" class="form-control">
+                    <option value="" selected disabled>Jenis</option>
+                    @foreach ($jeni as $j => $label)
+                    <option value="{{ $j }}">{{ $label }}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
     

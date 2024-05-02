@@ -25,7 +25,7 @@ class MenuController extends Controller
     public function index()
     {
            //dd('ok');
-      $menu = Menu::latest()->get();
+      $menu = Menu::orderBy('created_at', 'ASC')->get();
       $jeni = Jenis::pluck('nama_jenis', 'id');
       return view('menu.index', compact('menu', 'jeni'));
     }
@@ -46,21 +46,21 @@ class MenuController extends Controller
          //error handing
          try {
             $validated = $request->validated();
+            if ($request->hasFile('image')) {
+                $validated['image'] = $request->file('image')->store('public/menu');
+            } //
             DB::beginTransaction();
-            // DB::table('menus')->insert($validated);
-            $menu = Menu::create($request->all());
 
-            // Mendapatkan file yang diunggah oleh pengguna
-            $file = $request->file('image');
+            $menu = Menu::create($validated);
 
-            // Menyimpan file gambar ke direktori penyimpanan 'menu' dengan nama yang unik
-            $file_name = $file->getClientOriginalName(); // Nama file asli
-            $file_path = $file->storeAs('sapir', $file_name); // Simpan file dengan nama unik di direktori 'menu'
+            // $file = $request->file('image');
 
-            // Simpan nama file ke dalam kolom image di database
-            $menu->image = $file_path;
-            $menu->save();
-            DB::commit(); //nyimpan data ke database
+            // $file_name = $file->getClientOriginalName(); 
+            // $file_path = $file->storeAs('sapir', $file_name); 
+
+            // $menu->image = $file_path;
+            // $menu->save();
+            DB::commit();
 
             //untuk me-refresh ke halaman itu kembali untuk melihat hasil input
             return redirect('menu')->with('success', "input data berhasil");
@@ -92,10 +92,17 @@ class MenuController extends Controller
      */
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
+
         try {
             DB::beginTransaction();
-            $validate = $request->validated();
-            $menu->update($validate);
+            $validated = $request->validated();
+            if ($request->hasFile('image')) {
+                if ($menu->image) {
+                    Storage::delete($menu->image);
+                }
+                $validated['image'] = $request->file('image')->store('public/menu');
+            }
+            $menu->update($validated);
             DB::commit();
             return redirect()->back()->with('success', 'data berhasil di ubah');
         } catch (\Exception $e) {

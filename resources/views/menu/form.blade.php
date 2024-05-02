@@ -20,7 +20,7 @@
             
             <label for="harga" class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" placeholder="Harga" name="harga">
+                <input type="number" class="form-control" placeholder="Harga" name="harga">
             </div>
             
             <label for="image" class="col-sm-2 col-form-label">Foto</label>
@@ -61,7 +61,7 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Import Data Kategori</h5>
+      <h5 class="modal-title" id="exampleModalLabel">Import Data Menu</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>

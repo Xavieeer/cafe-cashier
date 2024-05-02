@@ -40,11 +40,11 @@
 
                                                     <p class="text-center">Rp. <span>{{ $menu->harga }}</span></p>
 
-                                                    @if($menu->stok->jumlah > 0)
+                                                    {{-- @if($menu->stok->jumlah > 0)
                                                     <p class="text-center">Stok : <span>{{ $menu->stok->jumlah }}</span></p>
                                                     @else
                                                     <p style="color: red;">Stok Habis</p>
-                                                    @endif
+                                                    @endif --}}
 
                                                 </div>
                                             </div>

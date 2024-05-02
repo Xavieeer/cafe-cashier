@@ -66,7 +66,7 @@
                 <img class="logo-abbr" src="{{ asset('admin') }}/focus-2/images/logo.png" alt="">
                 <img class="logo-compact" src="{{ asset('admin') }}/focus-2/images/logo-text.png" alt="">
                 {{-- <img class="brand-title" src="{{asset('admin')}}" alt=""> --}}
-                <span class="brand-title ">Cafe Cashier</span>
+                <span class="brand-title ">Nihon Cafe</span>
             </a>
 
             <div class="nav-control">
@@ -96,14 +96,7 @@
                             </div>
                         </div>
 
-                        <ul class="navbar-nav header-right">
-                            <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
-                                </a>
 
-                        </ul>
                     </div>
                 </nav>
             </div>
@@ -120,11 +113,10 @@
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
                     <li><a href="/"><i class="fa-solid fa-home"></i><span class="nav-text">Dashboard</span></a>
-
                     </li>
 
 
-                    @if(Auth::check() && Auth::user()->level == 1)
+                    @if (Auth::check() && Auth::user()->level == 1)
                         <li><a href="{{ url('category') }}"><i class="fa-solid fa-layer-group"></i><span
                                     class="nav-text">Category</span></a>
                         </li>
@@ -132,6 +124,9 @@
                         <li><a href="{{ url('register') }}"><i class="fa-solid fa-user"></i><span class="nav-text">User
                                     Manager</span></a>
                         </li>
+
+                        {{-- <li><a href="{{ url('grafik') }}"><i class="fa-solid fa-chart-simple"></i><span class="nav-text">Grafik</span></a>
+                        </li> --}}
 
                         {{-- <li><a href="{{ url('karyawan')}}"><i
                         class="icon icon-single-04"></i><span class="nav-text">Karyawan</span></a>
@@ -159,36 +154,36 @@
 
 
 
-                        <li><a href="{{ url('tentang') }}"><i class="fa-solid fa-mobile"></i><span
+                        {{-- <li><a href="{{ url('tentang') }}"><i class="fa-solid fa-mobile"></i><span
                                     class="nav-text">Tentang Aplikasi</span></a>
-                        </li>
+                        </li> --}}
 
                         {{-- <li><a href="{{ url('produk')}}"><i
     class="fa-solid fa-box"></i><span class="nav-text">Produk Titipan</span></a>
 </li> --}}
 
-                        <li><a href="{{ url('contact') }}"><i class="fa-solid fa-phone"></i><span
+                        {{-- <li><a href="{{ url('contact') }}"><i class="fa-solid fa-phone"></i><span
                                     class="nav-text">Contact Us</span></a>
-                        </li>
+                        </li> --}}
 
-                        <li><a href="{{ url('absensi') }}"><i class="fa-solid fa-fingerprint"></i><span
+                        {{-- <li><a href="{{ url('absensi') }}"><i class="fa-solid fa-fingerprint"></i><span
                                     class="nav-text">Absensi Kerja</span></a>
-                        </li>
+                        </li> --}}
                     @endif
 
-                    @if(Auth::check() && Auth::user()->level == 2)
+                    @if (Auth::check() && Auth::user()->level == 2)
                         <li><a href="{{ url('pemesanan') }}"><i class="fa-solid fa-money-bill"></i><span
                                     class="nav-text">Pemesanan</span></a>
                         </li>
 
 
-                        <li><a href="{{ url('laporan') }}"><i class="fa-solid fa-book"></i><span
+                        {{-- <li><a href="{{ url('laporan') }}"><i class="fa-solid fa-book"></i><span
                                     class="nav-text">History Penjualan</span></a>
-                        </li>
+                        </li> --}}
                     @endif
 
-                    <li><a href="{{ route('logout') }}"><i class="fa-solid fa-power-off"></i><span
-                                class="nav-text">Log Out</span></a>
+                    <li><a href="{{ route('logout') }}"><i class="fa-solid fa-power-off"></i><span class="nav-text">Log
+                                Out</span></a>
                     </li>
 
             </div>

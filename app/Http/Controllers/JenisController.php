@@ -23,7 +23,7 @@ class JenisController extends Controller
     public function index()
     {
          // dd('ok');
-      $jeni = Jenis::latest()->get();
+      $jeni = Jenis::orderBy('created_at', 'ASC')->get();
       return view('jenis.index', compact('jeni'));
     }
 
@@ -81,8 +81,8 @@ class JenisController extends Controller
     {
         try {
             DB::beginTransaction(); // memulai transaksi 
-            $validate = $request->validated(); //berisi data yg lulus dan operasi dilanjutkan
-            $jeni->update($validate); //memanggil metode update dalam model jeni dgn data yg udh divalidasi
+            $validate = $request->validated(); //digunakan untuk memvalidasi data jika berhasil dimasukkan ke variabel $validate
+            $jeni->update($validate); //mmemperbarui data dalam tabel jenis berdasarkan data yg sudah divalidasi.
             DB::commit(); // untuk menyimpan data jika tidak error
             return redirect()->back()->with('success', 'data berhasil di ubah'); //merefresh kembali jika berhasil
         } catch (\Exception $e) {

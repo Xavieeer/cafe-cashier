@@ -4,6 +4,7 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DetailTransaksiController;
+use App\Http\Controllers\GrafikController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
@@ -106,6 +107,9 @@ Route::get('/search', 'SearchController@search')->name('search');
 
 //LAPORAN TRANSAKSI
 Route::resource('laporan', LaporanController::class);
+
+//route grafik
+Route::get('/', [GrafikController::class, 'index']);
 
 
 

@@ -9,7 +9,7 @@ class Menu extends Model
 {
     use HasFactory;
     protected $table = 'menus';
-    protected $fillable = ['nama_menu', 'harga', 'image', 'deskripsi','jenis_id'];
+    protected $fillable = ['nama_menu', 'harga', 'image','deskripsi','jenis_id'];
 
     public function Jenis()
     {
