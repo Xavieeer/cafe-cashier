@@ -83,26 +83,26 @@
     //     $('#tbl-produk').DataTable()
     // })
 
-$(document).ready(function(){
-
-  $('#formPelangganEdit').on('show.bs.modal', function(e){
- 
-    let button = $(e.relatedTarget)
-    let id = button.data('id')
-    let nama = button.data('nama')
-    let email = button.data('email')
-    let nomor_telepon = button.data('nomor_telepon')
-    let alamat = button.data('alamat')
-
-console.log(nama)
-    $('#formPelangganEdit').find('#nama').val(nama)
-    $('#formPelangganEdit').find('#email').val(email)
-    $('#formPelangganEdit').find('#nomor_telepon').val(nomor_telepon)
-    $('#formPelangganEdit').find('#alamat').val(alamat)
-
-
-    $('.form-edit').attr('action',`/pelanggan/${id}`)
-  })
+    
+    $('#formPelangganEdit').on('show.bs.modal', function(e){
+        
+        let button = $(e.relatedTarget)
+        let id = button.data('id')
+        let nama = button.data('nama')
+        let email = button.data('email')
+        let nomor_telepon = button.data('nomor_telepon')
+        let alamat = button.data('alamat')
+        
+        console.log(nama)
+        $('#formPelangganEdit').find('#nama').val(nama)
+        $('#formPelangganEdit').find('#email').val(email)
+        $('#formPelangganEdit').find('#nomor_telepon').val(nomor_telepon)
+        $('#formPelangganEdit').find('#alamat').val(alamat)
+        
+        
+        $('.form-edit').attr('action',`/pelanggan/${id}`)
+    })
+    $(document).ready(function(){
 })
 </script>
 @endpush
